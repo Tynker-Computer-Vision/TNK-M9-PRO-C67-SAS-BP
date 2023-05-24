@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+
 confidenceThreshold = 0.3
 NMSThreshold = 0.1
 
@@ -12,6 +13,7 @@ labels = open(labelsPath).read().strip().split('\n')
 
 yoloNetwork = cv2.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
 
+
 video = cv2.VideoCapture("bb2.mp4")
 
 state = "play"
@@ -19,11 +21,13 @@ state = "play"
 while True:
     if (state == "play"):
         check, image = video.read()
+
         if (check):
-            image = cv2.resize(image, (0, 0), fx=0.4, fy=0.4)
+            image = cv2.resize(image, (0, 0), fx=1, fy=1)
 
             dimensions = image.shape[:2]
             H, W = dimensions
+
             blob = cv2.dnn.blobFromImage(image, 1/255, (416, 416))
             yoloNetwork.setInput(blob)
 
@@ -56,11 +60,40 @@ while True:
             font = cv2.FONT_HERSHEY_SIMPLEX
             for i in range(len(boxes)):
                 if i in indexes:
+
                     if labels[classIds[i]] == "sports ball":
                         x, y, w, h = boxes[i]
-                        color = (255, 0, 0)
+
+                        if i % 2 == 0:
+                            color = (0, 255, 0)
+                        else:
+
+                            color = (255, 0, 0)
+
                         cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
 
+                        label = labels[classIds[i]]
+
+                        cv2.putText(image, label, (x, y - 8),
+                                    font, 0.7, color, 2)
+
+                    if labels[classIds[i]] == "person":
+                        x, y, w, h = boxes[i]
+
+                        if i % 2 == 0:
+                            color = (0, 255, 0)
+                        else:
+
+                            color = (255, 0, 0)
+
+                        cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
+
+                        label = labels[classIds[i]]
+
+                        cv2.putText(image, label, (x, y - 8),
+                                    font, 0.7, color, 2)
+
+            
             cv2.imshow('Image', image)
             cv2.waitKey(1)
 
@@ -68,10 +101,13 @@ while True:
     if key == 32:
         print("Stopped")
         break
+   
     if key == 112:
         state = "pause"
+    
     if key == 108:
         state = "play"
-    # Check if r key is pressed i.e 114
-
+    
+    # Check if r key is pressed i.e 114    
+    
         # Use cv2.VideoCpture to initialize the video variable
