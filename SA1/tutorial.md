@@ -12,7 +12,7 @@ Follow the given steps to complete this activity:
 
 * Open the main.py file.
 
-* Declare a variable video.
+* Declare a variable `video`.
 
 * Using the `cv2.VideoCapture()` function read the video by passing the video as parameter.
 
@@ -22,7 +22,7 @@ Follow the given steps to complete this activity:
 
     `while True:`
 
-* Declare a varible readVideo and read the first frame using `video.read()` function.
+* Declare a varible `readVideo` and read the first frame using `video.read()` function.
 
     `readVideo = video.read()`
 

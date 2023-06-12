@@ -1,5 +1,5 @@
-Add Play and Pause
-====================
+Add Play, Pause, and Stop Features
+==================================
 In this activity, you will learn to add the play and pause functionality.
 
 <img src= "https://s3.amazonaws.com/media-p.slid.es/uploads/1525749/images/10495500/play_pause.gif" width = "480" height = "320">

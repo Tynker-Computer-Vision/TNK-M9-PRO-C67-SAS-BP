@@ -1,5 +1,5 @@
-Alternate the Color of Higlighting Box and add Label
-=====================================================
+Object Detection and Labeling
+==============================
 
 In this activity, you will learn to change the color of the higlighting box in the video.
 
@@ -7,11 +7,11 @@ In this activity, you will learn to change the color of the higlighting box in t
 
 Follow the given steps to complete this activity:
 
-1. Alternate the color of the higlighting box for ball
+1. Detect sports ball
 
 * Open the main.py file.
 
-* Check if the classIds of the labels is equal to sports ball.
+* Check if the `classIds` of the labels is equal to `sports ball`.
 
     `if labels[classIds[i]] == "sports ball":`
 
@@ -35,7 +35,7 @@ Follow the given steps to complete this activity:
 
 * Save and run the code to check the output.
 
-2. Alternate the color of the higlighting box for person
+2. Detect person
 
 * Open the main.py file.
 
@@ -53,11 +53,11 @@ Follow the given steps to complete this activity:
 
         `color = (255, 0, 0)`
 
-* Get the labels for the classIds and store them in variable label .
+* Get the labels for the `classIds` and store them in variable `label` .
 
     `label = labels[classIds[i]]`
 
-* Using the putText() function add the labels.
+* Using the `putText()` function add the labels.
 
     `cv2.putText(image, label, (x, y - 8),font, 0.7, color, 2)`
 

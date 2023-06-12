@@ -11,7 +11,7 @@ Follow the given steps to complete this activity:
 1. Restart the video when R key is pressed
 
 * Open the main.py file.
-* Check if r key is pressed i.e 114
+* Check if r key is pressed i.e 114.
 
     `if key == 114:` 
 
